@@ -1,19 +1,72 @@
-const { crearF } = require('./utils/multiplicar');
-const {argv} = require('./config/yargs');
+require('colors');
+const { inquirerMenu, pausa, leerInput, borrarTareas, confirmar, completarTareas } = require('./utils/inquirer');
+const Tareas = require('./models/tareas');
+const { guardarBD, leerBD } = require('./utils/driverArchivo');
 
 
-console.clear()
 
-// Forma tradicional de obtener valores de entrada por consola
-// Se tiene que invocar con el argumento --base=5
-// const [ , , arg3 = 'base=5' ] = process.argv;
-// const [, base = 5] = arg3.split('=');
-// console.log(process.argv);
 
-// console.log(argv);
-
-// const base = 2;
+const main = async() => {
     
-crearF(argv.b, argv.l, argv.h)
-    .then( msg => console.log(msg))
-    .catch(err => console.log(err));
+    // Variables locales
+    let opc = 100;
+    const tareas = new Tareas();
+    const tareasBD = leerBD();
+
+    if (tareasBD){
+        // Se va a leer las tareas guardadas en el archivo
+        tareas.cargarTareasFromArr(tareasBD);
+    }
+
+    // EJECUCION DEL MENU PRINCIPAL
+    do {
+    
+        opc = await inquirerMenu();
+        
+        switch (opc) {
+            case 1:
+                const desc = await leerInput('Descripcion:');
+                tareas.crearTarea(desc);
+                break;
+            case 2:
+                tareas.listadoTareas();
+                break;
+            case 3:
+                tareas.listadoCompletadasPendiente(true);
+                break;
+            case 4:
+                tareas.listadoCompletadasPendiente(false);           
+                break;
+            case 5:
+                const ids = await completarTareas(tareas.listadoArr);
+                tareas.toggleCompletadas(ids);
+                console.log('Tareas Completadas');
+                break;
+            case 6:
+                const id = await borrarTareas(tareas.listadoArr);
+                
+                if(id !=='0'){
+
+                    const ok = await confirmar('¿Esta seguro?')
+                    if (ok) {
+                        tareas.borrarTarea(id);
+                        console.log('Tarea borrada');
+                    }
+                }
+                break;
+        
+            default:
+                break;
+        }
+
+
+        // Persitir las tareas en un archivo externo
+        guardarBD(tareas.listadoArr);
+
+        await pausa();
+        
+    } while (opc !== 0);
+
+}
+
+main();

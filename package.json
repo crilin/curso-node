@@ -1,19 +1,17 @@
 {
-  "name": "03-bases-node",
-  "version": "0.0.1",
-  "description": "Aplicación para calcular la tabla de multiplicar en un archivo de texto",
-  "main": "app.js",
+  "name": "04-app-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "base3": "node app.js --base=3"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "multiplicar"
-  ],
-  "author": "Enrique Talavera",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "yargs": "^16.2.0"
+    "inquirer": "^7.3.3",
+    "uuid": "^11.1.0"
   }
 }
