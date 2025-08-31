@@ -1,5 +1,4 @@
 const inquirer = require('inquirer');
-const { validate } = require('uuid');
 require('colors');
 
 const preguntas = {
@@ -9,27 +8,11 @@ const preguntas = {
     choices: [
         {
             value: 1,
-            name: `${'1.'.blue} Crear Tarea`
+            name: `${'1.'.blue} Buscar Ciudad`
         },
         {
             value: 2,
-            name: `${'2.'.blue} Listar Tareas`
-        },
-        {
-            value: 3,
-            name: `${'3.'.blue} Listar Tareas completadas`
-        },
-        {
-            value: 4,
-            name: `${'4.'.blue} Listar Tareas pendientes`
-        },
-        {
-            value: 5,
-            name: `${'5.'.blue} Completar Tarea(s)`
-        },
-        {
-            value: 6,
-            name: `${'6.'.blue} Borrar Tarea`
+            name: `${'2.'.blue} Historial`
         },
         {
             value: 0,
@@ -46,11 +29,12 @@ const preguntas = {
 const inquirerMenu = async() => {
 
     console.clear();
-    console.log('=============================='.brightRed)
-    console.log('    Seleccione una opción'.yellow);
-    console.log('=============================='.brightRed)
+    console.log('=============================='.cyan)
+    console.log('    Seleccione una opción'.magenta);
+    console.log('=============================='.cyan)
     
-    const {opcion} = await inquirer.prompt(preguntas);
+    const prompt = inquirer.createPromptModule();
+    const {opcion} = await prompt(preguntas);
     return opcion;
 }
 
@@ -65,7 +49,8 @@ const pausa = async() => {
     }
     
     console.log('\n');
-    await inquirer.prompt(pausaOpc);
+    const prompt = inquirer.createPromptModule();
+    await prompt(pausaOpc);
 }
 
 /*
@@ -89,84 +74,47 @@ const leerInput = async(message) => {
 
 
     // Se obtiene el valor del campo name: desc desde consola
-    const {desc} = await inquirer.prompt(question);
+    const prompt = inquirer.createPromptModule();
+    const {desc} = await prompt(question);
     return desc; 
 
 }
 
 /*
-* Funcion para mostrar las tareas a eliminar
+* Funcion para listar los lugares consultados
 */ 
-const borrarTareas = async(listaTareas) =>{
+const listarLugares = async(lugares) =>{
 
-    const choices = listaTareas.map((e ,index ) => {
+    const choices = lugares.map((e ,index ) => {
 
-        const idx = `${index + 1}.`.green;
+        const idx = `${index + 1}.`.grey;
         return {
             value: e.id,
-            name: `${idx} ${e.desc}`
+            name: `${idx} ${e.nombre}`
         }
     });
 
     choices.unshift({
         value: '0',
-        name: '0. '.green + 'Regresar.'
+        name: '0. '.gray + 'Regresar.'
     });
 
     const preguntas = {
         type: 'list',
-        name: 'borrar',
-        message: 'Elija la tarea a borrar',
+        name: 'id',
+        message: 'Elija un lugar',
         choices
     }
-
-    const {borrar} = await inquirer.prompt(preguntas);
-    return borrar;
+    
+    const prompt = inquirer.createPromptModule();
+    const {id} = await prompt(preguntas);
+    return id;
 }
 
-/*
-* Funcion para mostrar las tareas a eliminar
-*/ 
-const completarTareas = async(listaTareas) =>{
-
-    const choices = listaTareas.map((e ,index ) => {
-
-        const idx = `${index + 1}.`.green;
-        return {
-            value: e.id,
-            name: `${idx} ${e.desc}`,
-            checked: (e.completadoEn) ? true : false
-        }
-    });
-
-    const pregunta = {
-        type: 'checkbox',
-        name: 'ids',
-        message: 'Seleccione',
-        choices
-    }
-
-    const {ids} = await inquirer.prompt(pregunta);
-    return ids;
-}
-
-const confirmar = async(message) => {
-
-    const pregunta = {
-        type: 'confirm',
-        name: 'ok',
-        message
-    }
-
-    const {ok} = await inquirer.prompt(pregunta);
-    return ok;
-}
 
 module.exports = {
     inquirerMenu,
     pausa,
     leerInput,
-    borrarTareas,
-    confirmar,
-    completarTareas
+    listarLugares
 }
