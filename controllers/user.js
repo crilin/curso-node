@@ -11,7 +11,6 @@ const usuariosGet = async(req = request, res = response) => {
     // Query a la BD
     const query = {estado:true}
 
-
     // LLamadas a la BD de manera simultanea
     const [total, users] = await Promise.all([
         User.countDocuments( query ),
@@ -32,23 +31,24 @@ const usuariosPost = async (req = request, res) => {
     const {nombre, password, correo, rol} = req.body;
 
     // Crear el usuario
-    const user = new User({nombre, password, correo, rol});
+    const nUser = new User({nombre, password, correo, rol});
 
     // encriptar password
     const salt = bcrypt.genSaltSync(8);
-    user.password = bcrypt.hashSync(password, salt);
+    nUser.password = bcrypt.hashSync(password, salt);
 
     // Guarda en BD
-    await user.save();
+    await nUser.save();
 
     res.status(201).json({
-            user
+            nUser
         })
 }
 
-const usuariosPut = async(req, res) => {
+const usuariosPut = async(req = request, res) => {
 
     const {id} = req.params;
+    
     const {_id, password, google, correo, ..._body } = req.body
 
     // TODO validar contra base de datos
@@ -67,11 +67,17 @@ const usuariosPut = async(req, res) => {
 const usuariosDelete = async (req, res) => {
 
     const { id } = req.params;
+    const usuarioAuth = req.usuario;
+
+    
 
     // Borrado lógico en la BD
-    const user = await User.findByIdAndUpdate(id, {estado: false}, {new:true});
+    const _user = await User.findByIdAndUpdate(id, {estado: false}, {new:true});
 
-    res.json(user);
+    res.json({   
+        _user,
+        usuarioAuth
+    });
 }
 
 module.exports = {

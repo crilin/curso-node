@@ -1,5 +1,5 @@
 const Role = require('../models/role');
-const User = require('../models/user');
+const user = require('../models/user');
 
 
 const siExisteRole = async (rol = '') => {
@@ -13,7 +13,7 @@ const siExisteRole = async (rol = '') => {
 // Verificar que el Correo no exista en BD
 const siExisteCorreo = async (correo) => {
 
-    const existeCorreo = await User.findOne({correo});
+    const existeCorreo = await user.findOne({correo});
     if (existeCorreo){
         throw new Error(`El correo ${correo} ya fue registrado`)
     }
@@ -21,9 +21,9 @@ const siExisteCorreo = async (correo) => {
 
 const existeUserById = async (id) => {
 
-    const existeId = await User.findById(id);
+    const existeId = await user.findById(id);
     if (!existeId){
-        throw new Error(`El id no es válido ${id}`)
+        throw new Error(`El id no esta registrado ${id}`)
     }
 }
 

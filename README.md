@@ -19,6 +19,12 @@ Aquí cubriremos varios temas como:
 - Eliminado físico de la base de datos
 - Eliminación por estado en un campo de la colección
 
+Pasos para crear un endpoint del API:
+- En /models/server.js crear la configuración de acceso al API y las rutas de acceso a los endpoints.
+- En /routes/*.js crear las peticiones a utilizar con las validaciones correspondientes.
+- En /middlewares se evaluan los errores correspondientes a las validaciones definidas en /routes/*.js
+- 
+
 Para ejecutar la aplicación ejecutar el comando:
 npm install
 
