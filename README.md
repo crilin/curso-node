@@ -2,22 +2,15 @@
 
 ## Webserver + RestServer
 
-En esta sección se realiza la configuración de una API RestServer con sus peticiones GET, POST, PUT, DELETE
-
 Aquí cubriremos varios temas como:
 
-- Definir los alcances de nuestro RESTServer
-- CRUD
-- Encriptación de contraseñas
-- Validaciones personalizadas
-- Creación de roles
-- Conexiones con MongoDB - MongoAtlas
-- Despliegue de base de datos en la nube
-- Conexión con mongoose con base de datos en la nube
-- Configuración de variables de entorno
-- Borrado de archivos
-- Eliminado físico de la base de datos
-- Eliminación por estado en un campo de la colección
+1. Generar API Key de Google
+2. Generar API Secret
+3. Usar librerías de Google para la validación de tokens
+4. Tips importantes en PostMan
+5. Despliegues a Heroku
+6. Uso del Google SignIn en el Front-End
+7. Crear usuarios personalizados en base a respuestas de Google
 
 Pasos para crear un endpoint del API:
 1. En /models/server.js crear la configuración de acceso al API y las rutas de acceso a los endpoints.
