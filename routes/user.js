@@ -7,10 +7,17 @@ const {usuariosGet, usuariosPost, usuariosPut, usuariosDelete } = require('../co
 
 const router = Router();
 
+/**
+ * Ruta /api/usuarios
+ */
+
 /*****************************
  * METODOS DEL API
  *****************************/
-// METODO GET
+
+/*--------------------------------
+ * METODO GET
+ --------------------------------*/
 router.get('/', usuariosGet);
 
 

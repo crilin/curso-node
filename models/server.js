@@ -7,8 +7,13 @@ class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
-        this.authPath = '/api/auth'
-        this.usuariosPath = '/api/usuarios'
+        this.paths = {
+            auth:       '/api/auth',
+            buscar:     '/api/buscar',
+            categorias: '/api/categorias',
+            productos:  '/api/productos',
+            usuarios:   '/api/usuarios'
+        }
 
         // Conectar con la Base de Datos
         this.conectarDB();
@@ -20,10 +25,12 @@ class Server {
         this.router();
     }
 
+    // Función para conectar a MongoDB
     async conectarDB() {
         await dbConnection();
     } 
 
+    // Middlewares de la API
     middlewares() {
 
         //CORS
@@ -36,12 +43,17 @@ class Server {
         this.app.use(express.static('public'))
     }
 
+    // Enrutado de los endpoint del API
     router() {
 
-        this.app.use( this.authPath, require('../routes/auth') );
-        this.app.use( this.usuariosPath, require('../routes/user') );
+        this.app.use( this.paths.auth, require('../routes/auth') );
+        this.app.use( this.paths.buscar, require('../routes/buscar') );
+        this.app.use( this.paths.categorias, require('../routes/categorias') );
+        this.app.use( this.paths.productos, require('../routes/productos') );
+        this.app.use( this.paths.usuarios, require('../routes/user') );
     }
 
+    // Configuración de la conexion a la API
     listen() {
         
         this.app.listen(this.port, () => {

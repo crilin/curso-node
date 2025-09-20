@@ -1,6 +1,5 @@
-const Role = require('../models/role');
-const user = require('../models/user');
-
+const categoria = require('../models/categoria');
+const {Role, Usuario, Producto} = require('../models');
 
 const siExisteRole = async (rol = '') => {
 
@@ -13,7 +12,7 @@ const siExisteRole = async (rol = '') => {
 // Verificar que el Correo no exista en BD
 const siExisteCorreo = async (correo) => {
 
-    const existeCorreo = await user.findOne({correo});
+    const existeCorreo = await Usuario.findOne({correo});
     if (existeCorreo){
         throw new Error(`El correo ${correo} ya fue registrado`)
     }
@@ -21,15 +20,32 @@ const siExisteCorreo = async (correo) => {
 
 const existeUserById = async (id) => {
 
-    const existeId = await user.findById(id);
+    const existeId = await Usuario.findById(id);
     if (!existeId){
         throw new Error(`El id no esta registrado ${id}`)
     }
 }
 
+const existeCategoriaById = async (id) => {
+
+    const existeId = await categoria.findById(id);
+    if (!existeId){
+        throw new Error(`El id no esta registrado ${id}`)
+    }
+}
+
+const existeProductoById = async (id) => {
+
+    const existeId = await Producto.findById(id);
+    if (!existeId){
+        throw new Error(`El id no esta registrado ${id}`)
+    }
+}
 
 module.exports = {
     siExisteRole,
     siExisteCorreo,
-    existeUserById
+    existeUserById,
+    existeCategoriaById,
+    existeProductoById
 }
