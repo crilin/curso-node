@@ -1,15 +1,21 @@
 # Curso: De 0 a experto - 2022 (Udemy)
 
-## Webserver + RestServer
+## Webserver + RestServer - Carga de Archivos
+
+### Sección 13:
 
 Aquí cubriremos varios temas como: 
 
-1. Tareas
-2. CRUD de categorías y productos
-3. Relaciones
-4. Populate
-5. Búsquedas
-6. Despliegues a producción
+1. Carga de archivos
+2. Validaciones de archivos
+3. Re-ubicar archivos
+4. Actualizar fotografía de un usuario
+5. Borrar archivos
+6. Cargar imágenes a los productos
+7. Servicio para mostrar y proteger imágenes
+8. Uso de dichas imágenes en el front-end
+9. Cloudinary
+10. Cloudinary SDK
 
 Pasos para crear un endpoint del API:
 1. En /models/server.js crear la configuración de acceso al API y las rutas de acceso a los endpoints.
