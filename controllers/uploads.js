@@ -27,6 +27,17 @@ const cargaArchivos = async (req, res = response) => {
     }
 }
 
+const archivosPUT = async (req, res = response) => {
+
+    const { coleccion, id } = req.params;
+
+    res.json({
+        coleccion,
+        id
+    })
+}
+
 module.exports = {
-    cargaArchivos
+    cargaArchivos,
+    archivosPUT
 }
