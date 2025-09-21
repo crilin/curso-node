@@ -7,8 +7,8 @@ const { Categoria, Producto } = require('../models');
 -------------------------------------------------------*/
 /**
  * Creación de producto
- * @param {request} req 
- * @param {response} res 
+ * @param {body} req 
+ * @param {msg} res 
  * @returns async JSON con status del crear producto
  */
 const productoPOST = async (req= request , res = response) => {
