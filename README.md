@@ -15,10 +15,10 @@ Aquí cubriremos varios temas como:
 En resumen, crearemos una aplicación de cola
 
 Para instalar las dependencias ejecutar el comando:
-npm install
+```npm install```
 
 La ejecución se realiza con el comando:
-npm start
+```npm start```
 
 Para la ejecución utilizando Docker:
 ```docker run --name socket-cola -p 85:3510 -d ejtalavera/node-sockets```
