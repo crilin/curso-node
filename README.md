@@ -1,20 +1,18 @@
 # Curso: De 0 a experto - 2022 (Udemy)
 
-## Webserver + RestServer - Sockets
+## Sockets - Colas
 
-### Sección 14:
+### Sección 15:
 
 Aquí cubriremos varios temas como: 
 
-1. Introducción a los sockets
-2. Resolver preguntas comunes sobre los sockets
-3. Instalación de Socket.io
-4. Detectar conexiones y desconexiones de usuarios
-5. Emitir mensajes cliente servidor / servidor cliente
-6. Escuchar los mensajes servidor cliente / cliente servidor
-7. Broadcast
-8. Callbacks en los sockets
-9. Pruebas en Heroku
+1. Aplicar sockets en un proyecto real
+2. Aprender sobre clases del ES6
+3. Asignar Tickets
+4. Leer Tickets
+5. Notificaciones 
+
+En resumen, crearemos una aplicación de cola
 
 Para instalar las dependencias ejecutar el comando:
 npm install
