@@ -1,18 +1,21 @@
 # Curso: De 0 a experto - 2022 (Udemy)
 
-## Sockets - Colas
+## Autenticación con Sockets
 
-### Sección 15:
+### Sección 16:
 
-Aquí cubriremos varios temas como: 
+A continuación veremos cómo establecer establecer una comunicación con nuestro WebSocket Server, pero validando la autenticación del usuario, y a la vez confirmar que los mensajes enviados por ese usuario son de quien dice ser.
 
-1. Aplicar sockets en un proyecto real
-2. Aprender sobre clases del ES6
-3. Asignar Tickets
-4. Leer Tickets
-5. Notificaciones 
+Puntualmente veremos:
 
-En resumen, crearemos una aplicación de cola
+1. Autenticar Sockets
+2. Usar JWT para validar Sockets
+3. Headers personalizados para Sockets
+4. Implementar el login en el FrontEnd
+5. Implementar y usar el GoogleSign in creado
+6. Enviar mensajes privados
+7. Enviar mensajes a salas
+8. Enviar mensajes globales
 
 Para instalar las dependencias ejecutar el comando:
 ```

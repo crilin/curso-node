@@ -1,18 +1,25 @@
 {
-  "name": "09-sockets-colas",
-  "version": "1.0.0",
+  "name": "REST Server",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
-    "socket.io": "^4.8.1"
+    "express-fileupload": "^1.5.2",
+    "express-validator": "^7.2.1",
+    "google-auth-library": "^10.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.0",
+    "uuid": "^8.3.2"
   }
 }
