@@ -25,3 +25,4 @@ Para la ejecución utilizando Docker:
 
 versiones:
 Node 21.6.1
+Docker image: current-alpine3.21
