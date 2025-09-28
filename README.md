@@ -29,6 +29,6 @@ Para la ejecución utilizando Docker:
 docker run --name socket-cola -p 85:3510 -d ejtalavera/node-sockets
 ```
 
-versiones:
-Node 21.6.1
-Docker image: current-alpine3.21
+versiones:  
+Node 21.6.1  
+Docker image: current-alpine3.21  
