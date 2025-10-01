@@ -1,21 +1,20 @@
 # Curso: De 0 a experto - 2022 (Udemy)
 
-## Autenticación con Sockets
+## Sala de CHAT con Sockets
 
-### Sección 16:
+### Sección 19:
 
-A continuación veremos cómo establecer establecer una comunicación con nuestro WebSocket Server, pero validando la autenticación del usuario, y a la vez confirmar que los mensajes enviados por ese usuario son de quien dice ser.
+Aquí cubriremos varios temas como: 
 
-Puntualmente veremos:
+1. Comunicación entre usuarios
+2. Comunicación entre 1 a muchos
+3. Comunicación 1 a 1
+4. Comunicación entre salas de chat
+5. Diseño del chat
+6. Diseño del login
+7. Notificaciones de entrada de usuarios y salida de usuarios
+8. El objetivo es crear una aplicación de chat completa
 
-1. Autenticar Sockets
-2. Usar JWT para validar Sockets
-3. Headers personalizados para Sockets
-4. Implementar el login en el FrontEnd
-5. Implementar y usar el GoogleSign in creado
-6. Enviar mensajes privados
-7. Enviar mensajes a salas
-8. Enviar mensajes globales
 
 Para instalar las dependencias ejecutar el comando:
 ```
