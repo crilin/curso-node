@@ -24,7 +24,11 @@ class ChatMensajes {
     }
 
     get usuariosArr() {
-        return Object.values( this.usuarios ); // [{},{},{}]
+        return Object.values( this.usuarios ); // Retorna un arreglo [{},{},{}]
+    }
+
+    getUsuario(id) {
+        return Object.values( this.usuarios[id]);
     }
 
     enviarMensaje( uid, nombre, mensaje ) {
@@ -38,7 +42,9 @@ class ChatMensajes {
     }
 
     desconectarUsuario( id ) {
+        let usuarioBorrado = this.usuarios[id];
         delete this.usuarios[id];
+        return usuarioBorrado;
     }
 }
 

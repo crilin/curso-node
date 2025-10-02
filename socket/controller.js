@@ -24,7 +24,7 @@ const socketController = async( socket = new Socket(), io ) => {
 
     // Eliminar usuarios desconectados
     socket.on('disconnect', () => {
-        chatMensajes.desconectarUsuario(usuario.id);
+        let usuario = chatMensajes.desconectarUsuario(usuario.id);
         io.emit('usuarios-activos', chatMensajes.usuariosArr);
     });
 
